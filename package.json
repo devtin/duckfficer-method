@@ -1,0 +1,83 @@
+{
+  "name": "duckfficer-method",
+  "description": "Creates a function that enforces certain input, output, errors and events using duckfficer",
+  "author": "Martin Rafael Gonzalez <tin@devtin.io>",
+  "version": "1.0.0",
+  "main": "dist/duckfficer-method.js",
+  "module": "dist/duckfficer-method.mjs",
+  "license": "MIT",
+  "scripts": {
+    "build": "npm run build:lib && npm run build:docs",
+    "build:lib": "rollup -c",
+    "build:docs": "npx jsdoc2md --plugin dmd-readme -d 3 --template node_modules/dmd-readme/docs.hbs --files dist/duckfficer-method.js > README.md",
+    "build:live": "nodemon -w src --exec yarn build",
+    "lint": "eslint --ext .js --ignore-path .gitignore src/",
+    "test": "NODE_ENV=test ava --serial --verbose",
+    "test:unit": "npm run test -- src/**/*.unit.js",
+    "test:all": "NODE_ENV=test ava --serial --verbose",
+    "release": "standard-version -a"
+  },
+  "files": [
+    "dist/*",
+    "src/*"
+  ],
+  "dependencies": {
+    "duckfficer": "^2.2.3"
+  },
+  "devDependencies": {
+    "@ava/babel": "^1.0.1",
+    "@rollup/plugin-alias": "^3.1.2",
+    "@rollup/plugin-commonjs": "^17.1.0",
+    "@rollup/plugin-json": "^4.1.0",
+    "ava": "^3.15.0",
+    "babel-eslint": "^10.1.0",
+    "dmd-readme": "^1.0.1-beta",
+    "eslint": "^7.18.0",
+    "esm": "^3.2.25",
+    "jsdoc-to-markdown": "^6.0.1",
+    "nodemon": "^2.0.7",
+    "nyc": "^15.1.0",
+    "rollup": "^2.38.1",
+    "standard-version": "^9.1.0"
+  },
+  "ava": {
+    "files": [
+      "src/**/*.unit.js"
+    ],
+    "require": [
+      "esm"
+    ],
+    "babel": true
+  },
+  "eslintConfig": {
+    "extends": "eslint:recommended",
+    "parser": "babel-eslint",
+    "env": {
+      "es6": true,
+      "node": true
+    },
+    "globals": {
+      "BigInt": true
+    },
+    "parserOptions": {
+      "ecmaVersion": 2018,
+      "sourceType": "module"
+    }
+  },
+  "standard-version": {
+    "scripts": {
+      "prerelease": "npm run lint && npm run build",
+      "precommit": "npm run --silent build > /dev/null 2>&1 && git add ."
+    }
+  },
+  "config": {
+    "readme": {
+      "features": {
+        "base": "src/",
+        "match": [
+          "**/*.unit.js"
+        ]
+      }
+    }
+  }
+}
