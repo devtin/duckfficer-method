@@ -6,7 +6,7 @@
 </p>
 
 <p>
-    
+    Creates a function that enforces certain input, output, errors and events using duckfficer
 </p>
 
 ## Installation
