@@ -1,5 +1,5 @@
 /*!
- * duckfficer-method v1.0.0
+ * duckfficer-method v1.0.1
  * (c) 2020-2021 Martin Rafael Gonzalez <tin@devtin.io>
  * MIT
  */
@@ -151,7 +151,11 @@ const duckfficerMethod = ({
     });
 
     try {
-      resultManager.result = await handler.call(resultManager, input, resultManager);
+      const caller = {
+        emit: resultManager.emit.bind(resultManager),
+        throw: resultManager.throw.bind(resultManager)
+      };
+      resultManager.result = await handler.call(caller, input, caller);
       return resultManager
     } catch (error) {
       if (!(error instanceof DuckfficerMethodError)) {
