@@ -22,7 +22,7 @@
     "src/*"
   ],
   "dependencies": {
-    "duckfficer": "^2.2.3"
+    "duckfficer": "^2.2.4"
   },
   "devDependencies": {
     "@ava/babel": "^1.0.1",
@@ -32,12 +32,12 @@
     "ava": "^3.15.0",
     "babel-eslint": "^10.1.0",
     "dmd-readme": "^1.0.1-beta",
-    "eslint": "^7.18.0",
+    "eslint": "^7.19.0",
     "esm": "^3.2.25",
     "jsdoc-to-markdown": "^6.0.1",
     "nodemon": "^2.0.7",
     "nyc": "^15.1.0",
-    "rollup": "^2.38.1",
+    "rollup": "^2.38.5",
     "standard-version": "^9.1.0"
   },
   "ava": {
