@@ -1,5 +1,5 @@
 /*!
- * duckfficer-method v1.0.2
+ * duckfficer-method v1.0.3
  * (c) 2020-2021 Martin Rafael Gonzalez <tin@devtin.io>
  * MIT
  */
