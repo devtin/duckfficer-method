@@ -22,7 +22,7 @@
     "src/*"
   ],
   "dependencies": {
-    "duckfficer": "^2.4.1"
+    "duckfficer": "^2.5.0"
   },
   "devDependencies": {
     "@ava/babel": "^1.0.1",
